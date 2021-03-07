@@ -60,21 +60,16 @@ btn.addEventListener("click", function(){
             break;
     }while(length === "" || length < 8 || length > 128 || !isNumeric(length));
 
-    lowercase = toInclude("Include lowercase letters?");
-    uppercase = toInclude("Include uppercase letters?");
-    numeric = toInclude("Include numbers?");
-    speciaCharacters = toInclude("Include special characters?");
-
-    if(lowercase){
+    if(toInclude("Include lowercase letters?")){
         optionsArray.push("lowercase");
     }
-    if(uppercase){
+    if(toInclude("Include UPPERCASE letters?")){
         optionsArray.push("uppercase");
     }
-    if(numeric){
+    if(toInclude("Include numbers?")){
         optionsArray.push("numeric");
     }
-    if(speciaCharacters){
+    if(toInclude("Include special characters?")){
         optionsArray.push("specialCharacters");
     }
 
