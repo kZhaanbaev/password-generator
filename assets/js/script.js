@@ -46,7 +46,7 @@ function generatePassword(){
             break;
             case "specialCharacters": letter = specialCharsArray[getRandomInt(0, specialCharsArray.length-1)];
         }
-        console.log(letter);
+        
         newPassword += letter;
     }
 
@@ -60,10 +60,10 @@ btn.addEventListener("click", function(){
             break;
     }while(length === "" || length < 8 || length > 128 || !isNumeric(length));
 
-    lowercase = toInclude("Include lowercase letters?");console.log(lowercase);
-    uppercase = toInclude("Include uppercase letters?");console.log(uppercase);
-    numeric = toInclude("Include numbers?");console.log(numeric);
-    speciaCharacters = toInclude("Include special characters?");console.log(speciaCharacters);
+    lowercase = toInclude("Include lowercase letters?");
+    uppercase = toInclude("Include uppercase letters?");
+    numeric = toInclude("Include numbers?");
+    speciaCharacters = toInclude("Include special characters?");
 
     if(lowercase){
         optionsArray.push("lowercase");
