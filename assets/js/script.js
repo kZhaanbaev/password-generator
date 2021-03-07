@@ -1,5 +1,5 @@
 
-let btn = document.querySelector('#generate');
+const btn = document.querySelector('#generate');
 const displayBox = document.querySelector('#pass');
 
 let length;
@@ -8,7 +8,7 @@ let uppercase;
 let numeric;
 let speciaCharacters;
 
-const optionsArray = [];
+let optionsArray = [];
 const alphabetArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 const specialCharsArray = ["!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
 
@@ -60,24 +60,33 @@ btn.addEventListener("click", function(){
             break;
     }while(length === "" || length < 8 || length > 128 || !isNumeric(length));
 
-    lowercase = toInclude("Include lowercase letters?");
-    uppercase = toInclude("Include uppercase letters?");
-    numeric = toInclude("Include numbers?");
-    speciaCharacters = toInclude("Include special characters?");
+    lowercase = toInclude("Include lowercase letters?");console.log(lowercase);
+    uppercase = toInclude("Include uppercase letters?");console.log(uppercase);
+    numeric = toInclude("Include numbers?");console.log(numeric);
+    speciaCharacters = toInclude("Include special characters?");console.log(speciaCharacters);
 
-    if(lowercase)
+    if(lowercase){
         optionsArray.push("lowercase");
-    if(uppercase)
+    }
+    if(uppercase){
         optionsArray.push("uppercase");
-    if(numeric)
+    }
+    if(numeric){
         optionsArray.push("numeric");
-    if(specialCharsArray)
+    }
+    if(speciaCharacters){
         optionsArray.push("specialCharacters");
+    }
+
+    let pass = "ERROR: Please choose at least 1 criteria";
     
-    let pass = generatePassword();
+    if(optionsArray.length > 1){
+        pass = generatePassword();
+    }
 
     displayBox.textContent = pass;
     displayBox.style.color = 'var(--darkest-color)';
+    optionsArray = [];
 });
 
 
