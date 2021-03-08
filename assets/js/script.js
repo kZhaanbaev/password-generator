@@ -75,7 +75,7 @@ btn.addEventListener("click", function(){
 
     let pass = "ERROR: Please choose at least 1 criteria";
     
-    if(optionsArray.length > 1){
+    if(optionsArray.length > 0){
         pass = generatePassword();
     }
 
